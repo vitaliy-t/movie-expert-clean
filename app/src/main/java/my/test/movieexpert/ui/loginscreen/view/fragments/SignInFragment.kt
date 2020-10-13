@@ -12,13 +12,17 @@ import my.test.movieexpert.R
 import my.test.movieexpert.databinding.FragmentSignInBinding
 import my.test.movieexpert.ui.loginscreen.model.state.SignInState
 import my.test.movieexpert.ui.loginscreen.viewmodel.SignInViewModel
+import my.test.movieexpert.ui.utilities.AlertDialog
 import my.test.movieexpert.ui.utilities.USER_PASSWORD_MIN_CHARACTERS
-import my.test.movieexpert.util.alertDialogError
-import my.test.movieexpert.util.hideKeyboard
-import my.test.movieexpert.util.proceedToProfileScreen
+import my.test.movieexpert.ui.utilities.hideKeyboard
+import my.test.movieexpert.ui.utilities.proceedToProfileScreen
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class SignInFragment : Fragment() {
+
+    @Inject
+    lateinit var alertDialog: AlertDialog
 
     private val signInViewModel: SignInViewModel by viewModels()
 
@@ -33,7 +37,7 @@ class SignInFragment : Fragment() {
                     proceedToProfileScreen(requireActivity())
                 }
                 is SignInState.Error -> {
-                    alertDialogError(requireContext(), state.errorMessage)
+                    alertDialog.error(requireContext(), state.errorMessage)
                 }
             }
         })

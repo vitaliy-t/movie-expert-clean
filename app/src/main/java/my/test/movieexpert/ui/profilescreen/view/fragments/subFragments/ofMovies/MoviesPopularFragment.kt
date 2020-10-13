@@ -14,10 +14,14 @@ import my.test.movieexpert.databinding.FragmentMoviesPopularBinding
 import my.test.movieexpert.domain.state.ViewState
 import my.test.movieexpert.ui.profilescreen.view.fragments.subFragments.ofMovies.adapters.PopularMoviesRecyclerAdapter
 import my.test.movieexpert.ui.profilescreen.viewModel.MoviesViewModel
-import my.test.movieexpert.util.alertDialogError
+import my.test.movieexpert.ui.utilities.AlertDialog
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MoviesPopularFragment : Fragment() {
+
+    @Inject
+    lateinit var alertDialog: AlertDialog
 
     private val moviesViewModel: MoviesViewModel by activityViewModels()
     private val adapter = PopularMoviesRecyclerAdapter()
@@ -54,7 +58,7 @@ class MoviesPopularFragment : Fragment() {
                     binding.progressBarLayout.visibility = View.GONE
                     binding.pageNavigation.visibility = View.VISIBLE
 
-                    alertDialogError(requireContext(), state.error)
+                    alertDialog.error(requireContext(), state.error)
                 }
             }
         })

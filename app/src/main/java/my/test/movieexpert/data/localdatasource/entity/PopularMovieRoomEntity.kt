@@ -13,6 +13,4 @@ data class PopularMovieRoomEntity(
     @ColumnInfo(name = "release_date") val release_date: String,
     @ColumnInfo(name = "poster_path") val poster_path: String?,
     @PrimaryKey(autoGenerate = true) val rowId: Int = 0
-) {
-
-}
+)

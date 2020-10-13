@@ -1,5 +1,6 @@
 package my.test.movieexpert.ui.loginscreen.view.fragments
 
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,11 +13,15 @@ import my.test.movieexpert.R
 import my.test.movieexpert.databinding.FragmentForgotPasswordBinding
 import my.test.movieexpert.ui.loginscreen.model.state.ForgotPasswordState
 import my.test.movieexpert.ui.loginscreen.viewmodel.ForgotPasswordViewModel
-import my.test.movieexpert.util.alertDialogSuccess
-import my.test.movieexpert.util.hideKeyboard
+import my.test.movieexpert.ui.utilities.AlertDialog
+import my.test.movieexpert.ui.utilities.hideKeyboard
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class ForgotPasswordFragment : Fragment() {
+
+    @Inject
+    lateinit var alertDialog: AlertDialog
 
     private val forgotPasswordViewModel: ForgotPasswordViewModel by viewModels()
 
@@ -31,7 +36,7 @@ class ForgotPasswordFragment : Fragment() {
         forgotPasswordViewModel.forgotPasswordState.observe(viewLifecycleOwner, { state ->
             when (state) {
                 is ForgotPasswordState.Sent -> {
-                    alertDialogSuccess(requireContext(), getString(R.string.forgot_password_message_success))
+                    alertDialog.success(requireContext(), getString(R.string.forgot_password_message_success))
                     this.findNavController().navigate(R.id.action_forgotPasswordFragment_to_signInFragment)
                 }
             }

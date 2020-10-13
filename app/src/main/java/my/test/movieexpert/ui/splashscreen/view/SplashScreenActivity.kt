@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
 import my.test.movieexpert.R
 import my.test.movieexpert.ui.splashscreen.viewModel.SplashViewModel
-import my.test.movieexpert.util.proceedToLoginScreen
-import my.test.movieexpert.util.proceedToProfileScreen
+import my.test.movieexpert.ui.utilities.proceedToLoginScreen
+import my.test.movieexpert.ui.utilities.proceedToProfileScreen
 
 @AndroidEntryPoint
 class SplashScreenActivity : AppCompatActivity() {

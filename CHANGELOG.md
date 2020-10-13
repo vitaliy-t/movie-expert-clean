@@ -1,6 +1,7 @@
 #CHANGELOG
 
-version 0.9.3:
-- Restructured & Refactored `LocalDataSource` and `RemoteDataSource`
-- Updated `DataState` with Kotlin Generics
-- Added new generic class `ViewState` for UI purposes
+version 0.9.4:
+- Code clean up
+- Created separate class for custom `AlertDialog`
+- Fixed some errors
+- Refactored `build.gradle` dependencies and updated some versions

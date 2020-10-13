@@ -12,12 +12,15 @@ import my.test.movieexpert.databinding.FragmentProfileBinding
 import my.test.movieexpert.ui.profilescreen.model.state.profile.EmailVerificationState
 import my.test.movieexpert.ui.profilescreen.model.state.profile.LoggedInState
 import my.test.movieexpert.ui.profilescreen.viewModel.ProfileViewModel
-import my.test.movieexpert.util.alertDialogError
-import my.test.movieexpert.util.alertDialogSuccess
-import my.test.movieexpert.util.proceedToLoginScreen
+import my.test.movieexpert.ui.utilities.AlertDialog
+import my.test.movieexpert.ui.utilities.proceedToLoginScreen
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class ProfileFragment : Fragment() {
+
+    @Inject
+    lateinit var alertDialog: AlertDialog
 
     private val profileViewModel: ProfileViewModel by viewModels()
 
@@ -29,11 +32,11 @@ class ProfileFragment : Fragment() {
         profileViewModel.emailVerificationState.observe(viewLifecycleOwner, { state ->
             when (state) {
                 is EmailVerificationState.Sent -> {
-                    alertDialogSuccess(requireContext(), requireContext().getString(R.string.profile_message_email_verification_was_sent))
+                    alertDialog.success(requireContext(), requireContext().getString(R.string.profile_message_email_verification_was_sent))
 
                 }
                 is EmailVerificationState.Error -> {
-                    alertDialogError(requireContext(), state.errorMessage)
+                    alertDialog.error(requireContext(), state.errorMessage)
                 }
             }
         })

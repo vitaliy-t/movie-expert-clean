@@ -12,12 +12,16 @@ import my.test.movieexpert.R
 import my.test.movieexpert.databinding.FragmentSignUpBinding
 import my.test.movieexpert.ui.loginscreen.model.state.SignUpState
 import my.test.movieexpert.ui.loginscreen.viewmodel.SignUpViewModel
+import my.test.movieexpert.ui.utilities.AlertDialog
 import my.test.movieexpert.ui.utilities.USER_PASSWORD_MIN_CHARACTERS
-import my.test.movieexpert.util.alertDialogSuccess
-import my.test.movieexpert.util.hideKeyboard
+import my.test.movieexpert.ui.utilities.hideKeyboard
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class SignUpFragment : Fragment() {
+
+    @Inject
+    lateinit var alertDialog: AlertDialog
 
     private val signUpViewModel: SignUpViewModel by viewModels()
 
@@ -29,7 +33,7 @@ class SignUpFragment : Fragment() {
         signUpViewModel.signUpState.observe(viewLifecycleOwner, { state ->
             when (state) {
                 is SignUpState.SignedUp -> {
-                    alertDialogSuccess(requireContext(), requireContext().getString(R.string.sign_up_message_success))
+                    alertDialog.success(requireContext(), requireContext().getString(R.string.sign_up_message_success))
                     this.findNavController().navigate(R.id.action_signUpFragment_to_signInFragment)
                 }
             }
