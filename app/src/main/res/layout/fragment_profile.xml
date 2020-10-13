@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="my.test.movieexpert.ui.utilities.Converters" />
+
+        <variable
+            name="viewModel"
+            type="my.test.movieexpert.ui.profilescreen.viewModel.ProfileViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        tools:context=".ui.profilescreen.view.fragments.ProfileFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/profile_image_user_avatar"
+                imageUrl="@{viewModel.user.photoUrl}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/profile_avatar_description" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/profile_text_user_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.user.displayName}"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/profile_text_user_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.user.email}"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/profile_text_user_is_email_confirmed"
+                isEmailConfirmed="@{viewModel.emailVerified}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="15sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/sign_in_button_submit"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                setButtonState="@{viewModel.emailVerificationState}"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@color/colorPrimaryDark"
+                android:onClick="@{()-> viewModel.sendUserVerificationEmail()}"
+                android:text="@string/profile_button_verify_email"
+                android:textColor="@android:color/black"
+                android:textSize="17sp"
+                android:visibility="@{Converters.booleanToVisibility(!viewModel.emailVerified)}" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/profile_button_logout"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@color/colorPrimaryDark"
+                android:onClick="@{() -> viewModel.userLogout()}"
+                android:text="@string/profile_button_logout"
+                android:textColor="@android:color/white"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+
+    </ScrollView>
+</layout>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "577251567629",
+    "firebase_url": "https://movie-expert-1.firebaseio.com",
+    "project_id": "movie-expert-1",
+    "storage_bucket": "movie-expert-1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:577251567629:android:79f2bab65c903aafcd4d44",
+        "android_client_info": {
+          "package_name": "my.test.movieexpert"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "577251567629-hpj1fa8lvvkk89qefelkdr8ng4fpaeai.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlzAELLLbQlqomGuHy48T6usR9LUatgiI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "577251567629-hpj1fa8lvvkk89qefelkdr8ng4fpaeai.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
