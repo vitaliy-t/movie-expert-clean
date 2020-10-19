@@ -11,9 +11,9 @@ class PopularMovieMapper @Inject constructor() {
             id = entity.id,
             title = entity.title,
             overview = entity.overview,
-            vote_average = entity.vote_average,
-            release_date = entity.release_date,
-            poster_path = entity.poster_path
+            vote_average = entity.voteAverage,
+            release_date = entity.releaseDate,
+            poster_path = entity.posterUrl
         )
     }
 
@@ -22,9 +22,9 @@ class PopularMovieMapper @Inject constructor() {
             id = entity.id,
             title = entity.title,
             overview = entity.overview,
-            vote_average = entity.vote_average,
-            release_date = entity.release_date,
-            poster_path = TMDB_IMAGE_BASE_URL + entity.poster_path
+            voteAverage = entity.vote_average,
+            releaseDate = entity.release_date,
+            posterUrl = TMDB_IMAGE_BASE_URL + entity.poster_path
         )
     }
 

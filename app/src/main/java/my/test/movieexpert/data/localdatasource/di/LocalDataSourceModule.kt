@@ -15,10 +15,9 @@ import javax.inject.Singleton
 object LocalDataSourceModule {
     @Singleton
     @Provides
-    fun bindMainDatabase(@ApplicationContext context: Context): MainDatabase = MainDatabase.getInstance(context)
+    fun provideMainDatabase(@ApplicationContext context: Context): MainDatabase = MainDatabase.getInstance(context)
 
     @Provides
-    fun bindPopularMovieDao(mainDatabase: MainDatabase): PopularMovieDao = mainDatabase.popularMovieDao()
-
+    fun providePopularMovieDao(mainDatabase: MainDatabase): PopularMovieDao = mainDatabase.popularMovieDao()
 
 }

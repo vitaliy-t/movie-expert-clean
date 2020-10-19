@@ -1,18 +1,15 @@
 package my.test.movieexpert.ui.profilescreen.viewModel
 
-import android.content.Context
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseUser
-import dagger.hilt.android.qualifiers.ApplicationContext
 import my.test.movieexpert.domain.usecase.MainUseCase
 import my.test.movieexpert.ui.profilescreen.model.state.profile.EmailVerificationState
 import my.test.movieexpert.ui.profilescreen.model.state.profile.LoggedInState
 
 class ProfileViewModel @ViewModelInject constructor(
-    @ApplicationContext context: Context,
     private val mainRepository: MainUseCase
 ) : ViewModel() {
     val user: FirebaseUser = mainRepository.getCurrentFirebaseUser()!!

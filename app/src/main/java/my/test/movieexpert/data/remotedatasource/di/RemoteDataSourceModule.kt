@@ -13,7 +13,7 @@ object RemoteDataSourceModule {
 
     @Singleton
     @Provides
-    fun bindPopularMovieApi(): PopularMovieApi = PopularMovieApi.getInstance()
+    fun providePopularMovieApi(): PopularMovieApi = PopularMovieApi.getInstance()
 
 
 }

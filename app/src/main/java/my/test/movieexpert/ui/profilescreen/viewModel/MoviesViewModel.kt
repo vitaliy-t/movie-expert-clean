@@ -1,19 +1,16 @@
 package my.test.movieexpert.ui.profilescreen.viewModel
 
-import android.content.Context
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.launch
 import my.test.movieexpert.domain.entity.PopularMovie
 import my.test.movieexpert.domain.state.ViewState
 import my.test.movieexpert.domain.usecase.MainUseCase
 
 class MoviesViewModel @ViewModelInject constructor(
-    @ApplicationContext context: Context,
     private val mainRepository: MainUseCase
 ) : ViewModel() {
 
