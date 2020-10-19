@@ -20,9 +20,7 @@ class MainRepository @Inject constructor(
     private val auth: FirebaseAuth
 ) {
 
-    /**
-     * Remember to look in my personal notes for further thoughts on this implementation in current scenario
-     */
+    // TODO: Look in Personal Notes for more detailed question about this implementation in current scenario
     private var isDirty = true
 
     fun isUserLoggedIn() = auth.currentUser != null

@@ -28,19 +28,6 @@ class MoviesViewModel @ViewModelInject constructor(
         viewModelScope.launch {
             val result = mainRepository.fetchPopularMovies(page = page)
             _popularMoviesState.value = result
-
-//            _popularMoviesState.value = when (result) {
-//
-//                is PopularMoviesState.Loading -> PopularMoviesState.Loading
-//                is PopularMoviesState.Content -> {
-//                    //TODO: Perhaps find a way to work with pages in a better, more isolated way.
-//                    currentPage = result.response.page
-//                    PopularMoviesState.Content(result.response)
-//                }
-//                is PopularMoviesState.Failure -> {
-//                    PopularMoviesState.Failure(result.errorMessage, result.cachedListOfMovies)
-//                }
-
         }
     }
 

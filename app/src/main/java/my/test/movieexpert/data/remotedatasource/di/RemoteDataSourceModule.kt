@@ -14,6 +14,4 @@ object RemoteDataSourceModule {
     @Singleton
     @Provides
     fun providePopularMovieApi(): PopularMovieApi = PopularMovieApi.getInstance()
-
-
 }
