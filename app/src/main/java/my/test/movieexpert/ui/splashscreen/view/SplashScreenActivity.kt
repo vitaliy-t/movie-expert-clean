@@ -5,7 +5,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
 import my.test.movieexpert.R
-import my.test.movieexpert.ui.splashscreen.viewModel.SplashViewModel
+import my.test.movieexpert.ui.splashscreen.viewmodel.SplashViewModel
 import my.test.movieexpert.ui.utilities.proceedToLoginScreen
 import my.test.movieexpert.ui.utilities.proceedToProfileScreen
 

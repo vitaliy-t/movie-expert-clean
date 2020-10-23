@@ -1,4 +1,4 @@
-package my.test.movieexpert.ui.splashscreen.viewModel
+package my.test.movieexpert.ui.splashscreen.viewmodel
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel

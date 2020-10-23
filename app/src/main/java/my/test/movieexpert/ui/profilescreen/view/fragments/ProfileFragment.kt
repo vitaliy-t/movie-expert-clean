@@ -11,7 +11,7 @@ import my.test.movieexpert.R
 import my.test.movieexpert.databinding.FragmentProfileBinding
 import my.test.movieexpert.ui.profilescreen.model.state.profile.EmailVerificationState
 import my.test.movieexpert.ui.profilescreen.model.state.profile.LoggedInState
-import my.test.movieexpert.ui.profilescreen.viewModel.ProfileViewModel
+import my.test.movieexpert.ui.profilescreen.viewmodel.ProfileViewModel
 import my.test.movieexpert.ui.utilities.AlertDialog
 import my.test.movieexpert.ui.utilities.proceedToLoginScreen
 import javax.inject.Inject

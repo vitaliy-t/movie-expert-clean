@@ -1,4 +1,4 @@
-package my.test.movieexpert.ui.profilescreen.viewModel
+package my.test.movieexpert.ui.profilescreen.viewmodel
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
@@ -13,7 +13,7 @@ class ProfileViewModel @ViewModelInject constructor(
     private val mainRepository: MainUseCase
 ) : ViewModel() {
     val user: FirebaseUser = mainRepository.getCurrentFirebaseUser()!!
-    val isEmailVerified = user.isEmailVerified  // TODO: Find more elegant way to deal with this; Currently needs to be stored separately in order to be used in DataBinding
+    val isEmailVerified = user.isEmailVerified
 
     private val _loggedInState = MutableLiveData<LoggedInState>()
     val loggedInState: LiveData<LoggedInState>

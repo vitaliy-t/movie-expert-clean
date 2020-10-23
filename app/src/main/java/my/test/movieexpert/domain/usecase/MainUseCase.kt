@@ -13,5 +13,7 @@ class MainUseCase @Inject constructor(
 
     fun userLogout() = mainRepository.userLogout()
 
-    suspend fun fetchPopularMovies(page: Int = 1) = mainRepository.getPopularMovies(page)
+    suspend fun getPopularMovieById(id: Int) = mainRepository.getPopularMovieById(id)
+    suspend fun getPopularMovies(page: Int = 1) = mainRepository.getPopularMovies(page)
+    suspend fun getLatestMovie() = mainRepository.getLatestMovie()
 }

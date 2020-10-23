@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="my.test.movieexpert.ui.profilescreen.viewModel.ProfileViewModel" />
+            type="my.test.movieexpert.ui.profilescreen.viewmodel.ProfileViewModel" />
     </data>
 
     <ScrollView

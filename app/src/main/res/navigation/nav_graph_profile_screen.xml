@@ -46,8 +46,8 @@
         android:label="fragment_movie_details"
         tools:layout="@layout/fragment_movie_details">
         <argument
-            android:name="movie"
-            app:argType="my.test.movieexpert.domain.entity.PopularMovie" />
+            android:name="id"
+            app:argType="integer" />
     </fragment>
 
 </navigation>

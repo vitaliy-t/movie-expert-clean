@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="movie"
-            type="my.test.movieexpert.domain.entity.PopularMovie" />
+            name="viewModel"
+            type="my.test.movieexpert.ui.profilescreen.viewmodel.MoviesViewModel" />
 
     </data>
 
@@ -23,7 +23,7 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatImageView
-                imageUrl="@{movie.posterUrl}"
+                imageUrl="@{viewModel.popularMovieById.posterUrl}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/movies_popular_poster_description" />
@@ -38,12 +38,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_star"
-                    android:text="@{String.valueOf(movie.voteAverage)}"
+                    android:text="@{String.valueOf(viewModel.popularMovieById.voteAverage)}"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
                     android:textStyle="italic"
-                    app:layout_constraintEnd_toStartOf="@id/title"
+                    app:layout_constraintEnd_toStartOf="@id/releaseDate"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/title" />
 
@@ -51,7 +51,7 @@
                     android:id="@+id/title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{movie.title}"
+                    android:text="@{viewModel.popularMovieById.title}"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="22sp"
@@ -65,13 +65,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_calendar"
-                    android:text="@{movie.releaseDate}"
+                    android:text="@{viewModel.popularMovieById.releaseDate}"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
                     android:textStyle="italic"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/title"
+                    app:layout_constraintStart_toEndOf="@id/voteAverage"
                     app:layout_constraintTop_toBottomOf="@id/title" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -80,7 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
-                android:text="@{movie.overview}"
+                android:text="@{viewModel.popularMovieById.overview}"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"

@@ -10,17 +10,14 @@ import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import my.test.movieexpert.R
 import my.test.movieexpert.databinding.FragmentMoviesBinding
-import my.test.movieexpert.ui.profilescreen.viewModel.MoviesViewModel
+import my.test.movieexpert.ui.profilescreen.viewmodel.MoviesViewModel
 
 @AndroidEntryPoint
 class MoviesFragment : Fragment() {
 
     private val moviesViewModel: MoviesViewModel by viewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = FragmentMoviesBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = moviesViewModel

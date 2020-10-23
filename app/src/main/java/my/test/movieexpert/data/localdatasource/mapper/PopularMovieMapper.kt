@@ -1,7 +1,7 @@
 package my.test.movieexpert.data.localdatasource.mapper
 
 import my.test.movieexpert.data.localdatasource.entity.PopularMovieRoomEntity
-import my.test.movieexpert.domain.entity.PopularMovie
+import my.test.movieexpert.domain.entity.movie.PopularMovie
 import javax.inject.Inject
 
 class PopularMovieMapper @Inject constructor() {
@@ -16,7 +16,7 @@ class PopularMovieMapper @Inject constructor() {
         )
     }
 
-    private fun mapToPopularMovie(entity: PopularMovieRoomEntity): PopularMovie {
+    fun mapToPopularMovie(entity: PopularMovieRoomEntity): PopularMovie {
         return PopularMovie(
             id = entity.id,
             title = entity.title,

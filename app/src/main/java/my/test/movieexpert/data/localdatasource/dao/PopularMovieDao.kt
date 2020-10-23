@@ -17,4 +17,7 @@ interface PopularMovieDao {
 
     @Query("SELECT * FROM PopularMovieRoomEntity")
     suspend fun getMovies(): List<PopularMovieRoomEntity>?
+
+    @Query("SELECT * FROM PopularMovieRoomEntity WHERE id = :id")
+    suspend fun getMovieById(id: Int): PopularMovieRoomEntity
 }

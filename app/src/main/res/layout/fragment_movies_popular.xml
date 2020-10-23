@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="my.test.movieexpert.ui.profilescreen.viewModel.MoviesViewModel" />
+            type="my.test.movieexpert.ui.profilescreen.viewmodel.MoviesViewModel" />
 
     </data>
 

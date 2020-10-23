@@ -14,6 +14,8 @@
     <string name="error_message_passwords_mismatch">Passwords do not match</string>
     <string name="error_message_password_is_too_short">Password must consist of at least %1$d characters</string>
     <string name="error_message_field_is_empty">Field is empty!</string>
+    <string name="error_message_could_not_load_content">Couldn\'t load content</string>
+    <string name="error_message_adult_content_is_not_allowed">Adult content is not allowed in this application</string>
 
     <string name="alert_dialog_default_title_success">Success!</string>
     <string name="alert_dialog_default_title_failure">Failure!</string>
@@ -52,6 +54,23 @@
     <string name="menu_home">Home</string>
     <string name="menu_movies">Movies</string>
     <string name="menu_profile">Profile</string>
+
+    <!-- ## START OF Home Fragment ## -->
+    <string name="home_header">Check the latest movie added to TMDB!</string>
+
+    <string name="home_latest_movie_title">Title: %1$s</string>
+    <string name="home_latest_movie_rating">Rating: %1$s</string>
+    <string name="home_latest_movie_release_date">Release Date: %1$s</string>
+    <string name="home_latest_movie_overview">Overview: %1$s</string>
+    <string name="home_latest_movie_status">Status: %1$s</string>
+    <string name="home_latest_movie_original_Title">Original Title: %1$s</string>
+    <string name="home_latest_movie_original_language">Original Language: %1$s</string>
+    <string name="home_latest_movie_budget">Budget: %1$s</string>
+    <string name="home_latest_movie_revenue">Revenue: %1$s</string>
+    <string name="home_latest_movie_runtime">Runtime: %1$s</string>
+    <string name="home_latest_movie_popularity">Popularity: %1$s</string>
+
+    <!-- ## END OF Home Fragment ## -->
 
     <!-- ## START OF Profile Fragment ## -->
     <string name="profile_avatar_description">User avatar</string>

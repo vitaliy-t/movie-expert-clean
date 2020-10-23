@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import my.test.movieexpert.databinding.FragmentPopularRecyclerViewLayoutBinding
-import my.test.movieexpert.domain.entity.PopularMovie
+import my.test.movieexpert.domain.entity.movie.PopularMovie
 import my.test.movieexpert.ui.profilescreen.view.fragments.subFragments.ofMovies.MoviesPopularFragmentDirections
 
 class PopularMoviesRecyclerAdapter : ListAdapter<PopularMovie, PopularMovieHolder>(
@@ -35,7 +35,7 @@ class PopularMovieHolder(private val binding: FragmentPopularRecyclerViewLayoutB
 
     private fun navigateToMovie(movie: PopularMovie, view: View) {
         val direction = MoviesPopularFragmentDirections.actionPopularFragmentToMovieDetailsFragment(
-            movie = movie
+            id = movie.id
         )
         view.findNavController().navigate(direction)
     }

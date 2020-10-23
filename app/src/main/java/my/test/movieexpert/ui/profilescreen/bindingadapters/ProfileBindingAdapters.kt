@@ -1,4 +1,4 @@
-package my.test.movieexpert.ui.profilescreen.bindingAdapters
+package my.test.movieexpert.ui.profilescreen.bindingadapters
 
 import android.graphics.Color
 import android.net.Uri
@@ -27,7 +27,7 @@ object ProfileBindingAdapters {
     @BindingAdapter("imageUrl")
     @JvmStatic
     fun ImageView.loadImage(uri: String?) {
-        uri?.let {
+        if (!uri.isNullOrEmpty()) {
             Glide.with(context)
                 .load(uri)
                 .into(this)

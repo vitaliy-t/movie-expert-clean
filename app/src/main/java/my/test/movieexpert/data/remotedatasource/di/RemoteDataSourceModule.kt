@@ -4,6 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
+import my.test.movieexpert.data.remotedatasource.api.LatestMovieApi
 import my.test.movieexpert.data.remotedatasource.api.PopularMovieApi
 import javax.inject.Singleton
 
@@ -14,4 +15,8 @@ object RemoteDataSourceModule {
     @Singleton
     @Provides
     fun providePopularMovieApi(): PopularMovieApi = PopularMovieApi.getInstance()
+
+    @Singleton
+    @Provides
+    fun provideLatestMovieApi(): LatestMovieApi = LatestMovieApi.getInstance()
 }

@@ -13,7 +13,7 @@ import my.test.movieexpert.R
 import my.test.movieexpert.databinding.FragmentMoviesPopularBinding
 import my.test.movieexpert.domain.state.ViewState
 import my.test.movieexpert.ui.profilescreen.view.fragments.subFragments.ofMovies.adapters.PopularMoviesRecyclerAdapter
-import my.test.movieexpert.ui.profilescreen.viewModel.MoviesViewModel
+import my.test.movieexpert.ui.profilescreen.viewmodel.MoviesViewModel
 import my.test.movieexpert.ui.utilities.AlertDialog
 import javax.inject.Inject
 
@@ -36,7 +36,6 @@ class MoviesPopularFragment : Fragment() {
         moviesViewModel.popularMoviesState.observe(viewLifecycleOwner, { state ->
             when (state) {
                 is ViewState.RemoteData -> {
-                    // TODO: Find a way to deal with this via DataBinding
                     binding.popularMoviesSwipeRefresh.isRefreshing = false
                     binding.progressBarLayout.visibility = View.GONE
                     binding.pageNavigation.visibility = View.VISIBLE
@@ -44,7 +43,6 @@ class MoviesPopularFragment : Fragment() {
                     adapter.submitList(state.data)
                 }
                 is ViewState.CachedData -> {
-                    // TODO: Find a way to deal with this via DataBinding
                     binding.popularMoviesSwipeRefresh.isRefreshing = false
                     binding.progressBarLayout.visibility = View.GONE
                     binding.pageNavigation.visibility = View.VISIBLE
@@ -53,7 +51,6 @@ class MoviesPopularFragment : Fragment() {
                     showSnackbar(requireView(), getString(R.string.movies_popular_message_viewing_cached_content), Snackbar.LENGTH_INDEFINITE)
                 }
                 is ViewState.Error -> {
-                    // TODO: Find a way to deal with this via DataBinding
                     binding.popularMoviesSwipeRefresh.isRefreshing = false
                     binding.progressBarLayout.visibility = View.GONE
                     binding.pageNavigation.visibility = View.VISIBLE
@@ -63,7 +60,6 @@ class MoviesPopularFragment : Fragment() {
             }
         })
 
-        // TODO: Look into implementing this via DataBinding
         binding.popularMoviesSwipeRefresh.setOnRefreshListener {
             binding.popularMoviesSwipeRefresh.isRefreshing = true
             moviesViewModel.fetchPopularMovies()
