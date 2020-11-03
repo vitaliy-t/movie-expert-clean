@@ -9,9 +9,7 @@ import my.test.movieexpert.domain.entity.movie.LatestMovie
 import my.test.movieexpert.domain.entity.movie.PopularMovie
 import my.test.movieexpert.domain.state.DataState
 import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
 class RemoteDataSource @Inject constructor(
     private val popularMovieApi: PopularMovieApi,
     private val latestMovieApi: LatestMovieApi,
@@ -28,8 +26,8 @@ class RemoteDataSource @Inject constructor(
     override suspend fun getPopularMovies(page: Int): DataState<PopularMovie> {
         return try {
             val response = popularMovieApi.getMovies(page = page)
-            if (response.code() == RESPONSE_CODE_SUCCESS) {
-                DataState.SuccessList(mapper.mapToListOfPopularMovie(response.body()?.results ?: listOf()))
+            if (response.isSuccessful) {
+                DataState.SuccessList(mapper.mapToListOfPopularMovie(response.body()!!.results))
             } else {
                 DataState.Error(ErrorResponse.parse(response).message)
             }
@@ -53,9 +51,5 @@ class RemoteDataSource @Inject constructor(
         } catch (error: Throwable) {
             DataState.Error(error.localizedMessage)
         }
-    }
-
-    companion object {
-        private const val RESPONSE_CODE_SUCCESS: Int = 200
     }
 }

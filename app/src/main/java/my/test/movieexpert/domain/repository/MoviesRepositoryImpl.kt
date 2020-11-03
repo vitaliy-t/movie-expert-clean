@@ -1,12 +1,10 @@
 package my.test.movieexpert.domain.repository
 
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.withContext
 import my.test.movieexpert.data.DataSource
-import my.test.movieexpert.domain.di.Local
-import my.test.movieexpert.domain.di.Remote
+import my.test.movieexpert.data.di.Local
+import my.test.movieexpert.data.di.Remote
 import my.test.movieexpert.domain.entity.movie.LatestMovie
 import my.test.movieexpert.domain.entity.movie.PopularMovie
 import my.test.movieexpert.domain.state.DataState
@@ -15,20 +13,11 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class MainRepository @Inject constructor(
+class MoviesRepositoryImpl @Inject constructor(
     @Local private val localDataSource: DataSource,
     @Remote private val remoteDataSource: DataSource,
-    private val auth: FirebaseAuth
-) {
-
-    fun isUserLoggedIn() = auth.currentUser != null
-    fun getCurrentFirebaseUser(): FirebaseUser? {
-        return auth.currentUser
-    }
-
-    fun userLogout() = auth.signOut()
-
-    suspend fun getPopularMovieById(id: Int) = try {
+) : MoviesRepository {
+    override suspend fun getPopularMovieById(id: Int) = try {
         withContext(IO) {
             val movie = localDataSource.getPopularMovieById(id) as DataState.SuccessObject
             movie.data
@@ -37,7 +26,7 @@ class MainRepository @Inject constructor(
         null
     }
 
-    suspend fun getPopularMovies(page: Int = 1): ViewState<PopularMovie> = try {
+    override suspend fun getPopularMovies(page: Int): ViewState<PopularMovie> = try {
         withContext(IO) {
             val remoteData = remoteDataSource.getPopularMovies(page)
 
@@ -57,7 +46,7 @@ class MainRepository @Inject constructor(
         ViewState.Error(error.localizedMessage ?: UNKNOWN_NETWORK_ERROR)
     }
 
-    suspend fun getLatestMovie(): ViewState<LatestMovie> = try {
+    override suspend fun getLatestMovie(): ViewState<LatestMovie> = try {
         withContext(IO) {
             val remoteData = remoteDataSource.getLatestMovie()
             if (remoteData is DataState.SuccessObject) {

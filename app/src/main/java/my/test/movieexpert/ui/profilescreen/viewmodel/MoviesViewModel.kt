@@ -8,10 +8,10 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import my.test.movieexpert.domain.entity.movie.PopularMovie
 import my.test.movieexpert.domain.state.ViewState
-import my.test.movieexpert.domain.usecase.MainUseCase
+import my.test.movieexpert.domain.usecase.MovieUseCase
 
 class MoviesViewModel @ViewModelInject constructor(
-    private val mainUseCase: MainUseCase
+    private val mainUseCase: MovieUseCase
 ) : ViewModel() {
 
     private val _popularMoviesState = MutableLiveData<ViewState<PopularMovie>>()

@@ -1,4 +1,4 @@
-package my.test.movieexpert.domain.di
+package my.test.movieexpert.data.di
 
 import javax.inject.Qualifier
 

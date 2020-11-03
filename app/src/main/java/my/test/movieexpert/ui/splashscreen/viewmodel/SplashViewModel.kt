@@ -2,12 +2,12 @@ package my.test.movieexpert.ui.splashscreen.viewmodel
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
-import my.test.movieexpert.domain.usecase.MainUseCase
+import com.google.firebase.auth.FirebaseAuth
 
 class SplashViewModel @ViewModelInject constructor(
-    private val mainRepository: MainUseCase
+    private val firebaseAuth: FirebaseAuth
 ) : ViewModel() {
 
-    fun isUserLoggedIn() = mainRepository.isUserLoggedIn()
+    fun isUserLoggedIn() = firebaseAuth.currentUser != null
 
 }

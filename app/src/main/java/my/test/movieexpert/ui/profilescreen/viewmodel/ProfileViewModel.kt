@@ -4,15 +4,15 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import my.test.movieexpert.domain.usecase.MainUseCase
 import my.test.movieexpert.ui.profilescreen.model.state.profile.EmailVerificationState
 import my.test.movieexpert.ui.profilescreen.model.state.profile.LoggedInState
 
 class ProfileViewModel @ViewModelInject constructor(
-    private val mainRepository: MainUseCase
+    private val firebaseAuth: FirebaseAuth
 ) : ViewModel() {
-    val user: FirebaseUser = mainRepository.getCurrentFirebaseUser()!!
+    val user: FirebaseUser = firebaseAuth.currentUser as FirebaseUser
     val isEmailVerified = user.isEmailVerified
 
     private val _loggedInState = MutableLiveData<LoggedInState>()
@@ -41,7 +41,7 @@ class ProfileViewModel @ViewModelInject constructor(
     }
 
     fun userLogout() {
-        mainRepository.userLogout()
+        firebaseAuth.signOut()
         _loggedInState.value = LoggedInState.LoggedOut
 
     }

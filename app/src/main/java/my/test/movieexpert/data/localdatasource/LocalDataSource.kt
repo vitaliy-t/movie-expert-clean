@@ -7,9 +7,7 @@ import my.test.movieexpert.domain.entity.movie.LatestMovie
 import my.test.movieexpert.domain.entity.movie.PopularMovie
 import my.test.movieexpert.domain.state.DataState
 import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
 class LocalDataSource @Inject constructor(
     private val popularMovieDao: PopularMovieDao,
     private val mapper: PopularMovieMapper

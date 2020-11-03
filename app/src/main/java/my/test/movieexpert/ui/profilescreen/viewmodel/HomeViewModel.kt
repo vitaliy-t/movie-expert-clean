@@ -8,11 +8,11 @@ import kotlinx.coroutines.launch
 import my.test.movieexpert.R
 import my.test.movieexpert.domain.entity.movie.LatestMovie
 import my.test.movieexpert.domain.state.ViewState
-import my.test.movieexpert.domain.usecase.MainUseCase
+import my.test.movieexpert.domain.usecase.MovieUseCase
 
 class HomeViewModel @ViewModelInject constructor(
     @ApplicationContext private val context: Context,
-    private val mainUseCase: MainUseCase
+    private val mainUseCase: MovieUseCase
 ) : ViewModel() {
 
     private val _latestMovieState = MutableLiveData<ViewState<LatestMovie>>()
