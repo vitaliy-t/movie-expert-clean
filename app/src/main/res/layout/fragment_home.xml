@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ScrollView
+            <androidx.core.widget.NestedScrollView
                 LatestMovieUI="@{viewModel.latestMovieState}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -164,7 +164,7 @@
                         android:textStyle="italic" />
 
                 </LinearLayout>
-            </ScrollView>
+            </androidx.core.widget.NestedScrollView>
 
             <LinearLayout
                 LatestMovieUiError="@{viewModel.latestMovieState}"
